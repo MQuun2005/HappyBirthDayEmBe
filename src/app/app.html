@@ -1,0 +1,87 @@
+<!-- Main Page - Birthday Celebration -->
+<div class="romantic-page" *ngIf="isHomePage()">
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-top-left" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom-right" aria-hidden="true"></div>
+
+  <!-- Floating Balloons Animation -->
+  <div class="balloons-container" aria-hidden="true">
+    <img src="Image/ballon1.svg" alt="balloon" class="balloon-item b1">
+    <img src="Image/ballon2.svg" alt="balloon" class="balloon-item b2">
+    <img src="Image/ballon3.svg" alt="balloon" class="balloon-item b3">
+    <img src="Image/ballon1.svg" alt="balloon" class="balloon-item b4">
+    <img src="Image/ballon2.svg" alt="balloon" class="balloon-item b5">
+    <img src="Image/ballon3.svg" alt="balloon" class="balloon-item b6">
+    <img src="Image/ballon2.svg" alt="balloon" class="balloon-item b7">
+  </div>
+
+  <!-- Gentle falling petals / sparkles -->
+  <div class="petals-container" aria-hidden="true">
+    <div class="petal petal-1">🌸</div>
+    <div class="petal petal-2">✨</div>
+    <div class="petal petal-3">🎂</div>
+    <div class="petal petal-4">🤍</div>
+    <div class="petal petal-5">✨</div>
+    <div class="petal petal-6">💖</div>
+  </div>
+
+  <!-- Main Container -->
+  <main class="main-container">
+    <div class="romantic-card fade-in-up">
+      <!-- Top Badge -->
+      <div class="card-badge">
+        <span class="badge-icon">🎂</span>
+        <span>16.06 • Happy Birthday Em Bé</span>
+      </div>
+
+      <!-- Main Title Section -->
+      <h1 class="main-title">
+        Chúc Mừng Sinh Nhật Em Bé
+      </h1>
+
+      <p class="subtitle">
+        Gửi trọn yêu thương & những điều dịu dàng nhất đến <strong>Em Bé</strong> trong ngày đặc biệt
+      </p>
+
+      <!-- Delicate Divider -->
+      <div class="card-divider">
+        <span class="divider-icon">✦</span>
+      </div>
+
+      <p class="card-quote">
+        “Cảm ơn em đã xuất hiện và làm cho thế giới của anh trở nên ấm áp và ngọt ngào hơn mỗi ngày.”
+      </p>
+
+      <!-- Action Button -->
+      <div class="button-wrapper">
+        <button (click)="showMessagePopup()" class="action-button">
+          <span>Mở món quà sinh nhật</span>
+          <span class="button-icon">✦</span>
+        </button>
+      </div>
+
+      <!-- Footer -->
+      <footer class="card-footer">
+        <span>Made with love for Em Bé</span>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Message Popup -->
+  <app-message-popup 
+    [isVisible]="showPopup" 
+    (closePopup)="closeMessagePopup()"
+    (openHeartTVNLModal)="showHeartTVNLModalPopup()">
+  </app-message-popup>
+</div>
+
+<!-- Heart TV NL Modal Fullscreen -->
+<div class="heart-tv-nl-modal-overlay" *ngIf="showHeartTVNLModal" (click)="closeHeartTVNLModal()">
+  <div class="heart-tv-nl-modal-content" (click)="$event.stopPropagation()">
+    <app-heart-animation-tv-nl [isModal]="true" (closeModal)="closeHeartTVNLModal()">
+    </app-heart-animation-tv-nl>
+  </div>
+</div>
+
+<!-- Router Outlet -->
+<router-outlet></router-outlet>

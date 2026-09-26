@@ -1,0 +1,603 @@
+/* ==========================================================================
+   Modern Romantic Message Modal Styles (Zero Cheesy Gradients)
+   ========================================================================== */
+
+/* Overlay */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(35, 22, 27, 0.48);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+/* Modal Card */
+.popup-card {
+  background: #FFFFFF;
+  border-radius: 28px;
+  border: 1px solid rgba(226, 206, 212, 0.7);
+  box-shadow: 0 28px 70px -15px rgba(50, 20, 28, 0.22);
+  width: 100%;
+  max-width: 640px;
+  height: min(85vh, 680px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Close Button */
+.popup-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(214, 185, 192, 0.35);
+  background: #FAF7F5;
+  color: #7A5F67;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 20;
+}
+
+.popup-close-btn:hover {
+  background: #B84D63;
+  color: #FFFFFF;
+  border-color: #B84D63;
+  transform: rotate(90deg);
+}
+
+/* Header & Step Indicator */
+.popup-header {
+  padding: 1.25rem 1.5rem 0.75rem;
+  border-bottom: 1px solid rgba(230, 212, 218, 0.4);
+  background: #FDFBFB;
+  flex-shrink: 0;
+}
+
+.step-indicator-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 100%;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.step-progress-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: transparent;
+  color: #A38C93;
+  font-size: 0.76rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.step-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.step-progress-item:hover {
+  color: #B84D63;
+  background: #F9EFF2;
+}
+
+.step-progress-item.active {
+  background: #F8ECEF;
+  color: #B84D63;
+  font-weight: 600;
+}
+
+.step-progress-item.completed {
+  color: #6E535B;
+}
+
+/* Body Container */
+.popup-body {
+  flex: 1;
+  padding: 1.75rem 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Common Step Typography & Elements */
+.step-content {
+  width: 100%;
+  margin: auto 0;
+  text-align: center;
+  animation: fadeInStep 0.4s ease forwards;
+}
+
+@keyframes fadeInStep {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-badge {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.content-badge span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B84D63;
+  background: #F8ECEF;
+  padding: 4px 14px;
+  border-radius: 999px;
+}
+
+.step-heading {
+  font-family: var(--font-serif);
+  font-size: 2.15rem;
+  font-weight: 600;
+  color: #431E27;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+/* Step 0: Welcome */
+.step-avatar-ornament {
+  margin: 0.75rem auto 1.5rem;
+}
+
+.ornament-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #FAF0F2;
+  border: 1px solid #EBD5DB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto;
+  box-shadow: 0 8px 20px -4px rgba(184, 77, 99, 0.15);
+}
+
+.step-lead {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #431E27;
+  margin-bottom: 0.85rem;
+  line-height: 1.5;
+}
+
+.step-paragraph {
+  font-size: 0.98rem;
+  color: #5C484F;
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Step 1: Slideshow / Polaroid */
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.polaroid-frame {
+  background: #FFFFFF;
+  border: 1px solid #EAE0E3;
+  border-radius: 18px;
+  padding: 12px 12px 18px;
+  box-shadow: 0 12px 30px -8px rgba(60, 25, 35, 0.12);
+  width: 100%;
+}
+
+.polaroid-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #F5EFEB;
+}
+
+.gallery-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.gallery-slide.active {
+  opacity: 1;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.polaroid-caption {
+  margin-top: 14px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #5C424A;
+  text-align: center;
+}
+
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.gallery-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #E5D5D9;
+  background: #FFFFFF;
+  color: #6B4D56;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gallery-btn:hover {
+  background: #B84D63;
+  color: #FFFFFF;
+  border-color: #B84D63;
+}
+
+.gallery-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.gallery-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #DECED2;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.gallery-dot.active {
+  width: 20px;
+  border-radius: 999px;
+  background: #B84D63;
+}
+
+/* Step 2: Love Letter */
+.love-letter-card {
+  background: #FAF7F5;
+  border: 1px solid #EBE0E3;
+  border-radius: 20px;
+  padding: 2.25rem 2rem;
+  text-align: left;
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 10px 25px -8px rgba(60, 25, 35, 0.05);
+}
+
+.letter-quote-mark {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(184, 77, 99, 0.2);
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  user-select: none;
+}
+
+.letter-text {
+  font-size: 1rem;
+  color: #4A393E;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.letter-signature {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(214, 185, 192, 0.35);
+  padding-top: 0.75rem;
+  font-size: 0.92rem;
+  color: #6A5259;
+}
+
+.letter-signature strong {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: #B84D63;
+}
+
+/* Step 3: Memories */
+.memories-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.memory-card {
+  background: #FCF9F9;
+  border: 1px solid #EFE4E7;
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+  transition: all 0.25s ease;
+}
+
+.memory-card:hover {
+  background: #FFFFFF;
+  border-color: rgba(184, 77, 99, 0.3);
+  transform: translateX(4px);
+  box-shadow: 0 8px 20px -6px rgba(184, 77, 99, 0.1);
+}
+
+.memory-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #F8ECEF;
+  border: 1px solid #ECD3D9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.memory-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #431E27;
+  margin-bottom: 4px;
+}
+
+.memory-desc {
+  font-size: 0.88rem;
+  color: #614F55;
+  line-height: 1.5;
+}
+
+/* Step 4: Final Gift Card */
+.final-card {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.final-emblem {
+  font-size: 3rem;
+  margin-bottom: 1.25rem;
+  animation: subtlePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+.final-lead {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #431E27;
+  line-height: 1.5;
+  margin-bottom: 0.85rem;
+}
+
+.final-subtext {
+  font-size: 0.95rem;
+  color: #614F55;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.final-cta-btn {
+  background: #B84D63;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 999px;
+  padding: 15px 36px;
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 24px -4px rgba(184, 77, 99, 0.38);
+  transition: all 0.3s ease;
+}
+
+.final-cta-btn:hover {
+  background: #9E3D52;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -4px rgba(184, 77, 99, 0.48);
+}
+
+.cta-sparkle {
+  color: #FFE6EC;
+}
+
+/* Popup Footer / Navigation */
+.popup-footer {
+  padding: 1rem 1.75rem;
+  border-top: 1px solid rgba(230, 212, 218, 0.4);
+  background: #FDFBFB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.footer-spacer {
+  flex: 1;
+}
+
+.nav-btn {
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #D9C5CB;
+  color: #6B4D56;
+}
+
+.btn-secondary:hover {
+  background: #F9EFF2;
+  border-color: #B84D63;
+  color: #B84D63;
+}
+
+.btn-primary {
+  background: #B84D63;
+  border: 1px solid #B84D63;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(184, 77, 99, 0.25);
+  margin-left: auto;
+}
+
+.btn-primary:hover {
+  background: #9E3D52;
+  border-color: #9E3D52;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(184, 77, 99, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .popup-card {
+    height: 90vh;
+    border-radius: 22px;
+  }
+
+  .popup-header {
+    padding: 1rem 1rem 0.5rem;
+  }
+
+  .step-label {
+    display: none;
+  }
+
+  .step-progress-item {
+    padding: 6px 10px;
+  }
+
+  .popup-body {
+    padding: 1.25rem 1rem;
+  }
+
+  .step-heading {
+    font-size: 1.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .polaroid-image-wrapper {
+    height: 220px;
+  }
+
+  .love-letter-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .letter-text {
+    font-size: 0.92rem;
+  }
+
+  .popup-footer {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-btn {
+    padding: 9px 18px;
+    font-size: 0.84rem;
+  }
+}
+
+/* Birthday Party Hat Placement */
+.polaroid-frame {
+  position: relative;
+  overflow: visible !important;
+}
+
+.party-hat {
+  position: absolute;
+  top: -46px;
+  left: 20px;
+  width: 90px;
+  height: auto;
+  transform: rotate(-12deg);
+  z-index: 25;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+  animation: hatBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes hatBounce {
+  0% {
+    transform: translateY(-50px) rotate(-35deg) scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(-12deg) scale(1);
+    opacity: 1;
+  }
+}

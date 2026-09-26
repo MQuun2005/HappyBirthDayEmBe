@@ -1,0 +1,18 @@
+<!-- Heart Animation Pinkboard Component -->
+<div class="heart-animation-container" [class.modal-mode]="isModal">
+  <!-- Back / Close button -->
+  <button class="back-button" (click)="goBack()" aria-label="Quay lại hoặc Đóng">
+    <span>{{ isModal ? '✕ Đóng' : '← Quay lại' }}</span>
+  </button>
+
+  <!-- Box for pulsating pinkboard canvas -->
+  <div class="box">
+    <div class="pinkboard-box">
+      <canvas #pinkboardCanvas id="pinkboard"></canvas>
+      <div class="heart-text-overlay">
+        <h1>Happy Birthday</h1>
+        <p class="sub-text">Yêu Em Bé 💖</p>
+      </div>
+    </div>
+  </div>
+</div>

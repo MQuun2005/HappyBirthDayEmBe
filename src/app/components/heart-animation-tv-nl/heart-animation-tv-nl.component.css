@@ -1,0 +1,166 @@
+/* Heart Animation Pinkboard Component Styles */
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.heart-animation-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+}
+
+.heart-animation-container.modal-mode {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+}
+
+/* Modern Frosted Back Button */
+.back-button {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  padding: 10px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1001;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Container Box */
+.box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Pulsating Pinkboard Box */
+.pinkboard-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(85vw, 680px);
+  height: min(85vw, 680px);
+  max-width: 750px;
+  max-height: 750px;
+  animation: animate 2s ease-in-out infinite;
+}
+
+#pinkboard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Center Text Overlay - Enhanced legibility and protection from particle stream */
+.heart-text-overlay {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+  width: 90%;
+  max-width: 440px;
+  padding: 1.5rem 1.25rem;
+  /* Radial vignette creates a subtle clearing so particles don't wash out the text */
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.38) 55%, transparent 75%);
+  border-radius: 50%;
+}
+
+.heart-text-overlay h1 {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-size: clamp(2.3rem, 6vw, 3.6rem);
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 4px;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.1;
+  /* Dark outline dropshadow + intense pink neon aura for maximum contrast and pop */
+  text-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.95),
+    0 0 20px #FF5CA4,
+    0 0 45px #FF5CA4,
+    0 0 70px rgba(255, 92, 164, 0.85);
+}
+
+.heart-text-overlay .sub-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  color: #FFB3D1;
+  letter-spacing: 3px;
+  margin-top: 8px;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.95),
+    0 0 16px rgba(255, 92, 164, 0.9);
+}
+
+/* Heartbeat Scale Animation */
+@keyframes animate {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.85);
+  }
+  60% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .back-button {
+    top: 16px;
+    left: 16px;
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}
