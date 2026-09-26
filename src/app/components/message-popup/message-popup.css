@@ -202,31 +202,39 @@
   margin: 0 auto;
 }
 
-/* Step 1: Slideshow / Polaroid */
+/* Step 1: Slideshow / Polaroid - Hiển thị 100% trọn vẹn ảnh gốc 3:4 không bị cắt */
 .gallery-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 440px;
+  max-width: 330px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .polaroid-frame {
+  position: relative;
   background: #FFFFFF;
   border: 1px solid #EAE0E3;
   border-radius: 18px;
-  padding: 12px 12px 18px;
-  box-shadow: 0 12px 30px -8px rgba(60, 25, 35, 0.12);
+  padding: 10px 10px 14px;
+  box-shadow: 0 14px 34px -8px rgba(60, 25, 35, 0.14);
   width: 100%;
+  overflow: visible !important;
 }
 
 .polaroid-image-wrapper {
   position: relative;
   width: 100%;
-  height: 280px;
+  aspect-ratio: 3 / 4;
+  max-height: min(48vh, 390px);
   border-radius: 12px;
   overflow: hidden;
   background: #F5EFEB;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gallery-slide {
@@ -234,6 +242,9 @@
   inset: 0;
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gallery-slide.active {
@@ -243,8 +254,9 @@
 .gallery-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 12px;
+  display: block;
 }
 
 .polaroid-caption {
@@ -552,7 +564,8 @@
   }
 
   .polaroid-image-wrapper {
-    height: 220px;
+    aspect-ratio: 3 / 4;
+    max-height: min(44vh, 310px);
   }
 
   .love-letter-card {
@@ -573,31 +586,39 @@
   }
 }
 
-/* Birthday Party Hat Placement */
-.polaroid-frame {
-  position: relative;
-  overflow: visible !important;
-}
-
+/* Birthday Party Hat Placement - Đặt chuẩn xác trên đỉnh đầu ảnh gốc */
 .party-hat {
   position: absolute;
-  top: -46px;
-  left: 20px;
-  width: 90px;
+  top: -30px;
+  left: 50%;
+  margin-left: -54px;
+  width: 76px;
   height: auto;
-  transform: rotate(-12deg);
+  transform: rotate(-10deg);
   z-index: 25;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
-  animation: hatBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.28));
+  animation: hatBounce 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  pointer-events: none;
 }
 
 @keyframes hatBounce {
   0% {
-    transform: translateY(-50px) rotate(-35deg) scale(0.6);
+    transform: translateY(-40px) rotate(-30deg) scale(0.6);
     opacity: 0;
   }
   100% {
-    transform: translateY(0) rotate(-12deg) scale(1);
+    transform: translateY(0) rotate(-10deg) scale(1);
     opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-container {
+    max-width: 270px;
+  }
+  .party-hat {
+    top: -24px;
+    width: 60px;
+    margin-left: -44px;
   }
 }
